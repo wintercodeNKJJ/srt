@@ -1,0 +1,22 @@
+:root{
+--size-display-xl:clamp(56px,8vw,112px);--size-display-l:clamp(40px,5.5vw,72px);--size-display-m:clamp(32px,4vw,48px);
+--size-title:28px;--size-subtitle:20px;--size-body-l:17px;--size-body:15px;--size-body-s:13px;--size-caption:11px;--size-micro:9px;
+--lh-display:0.94; /* @kind other */
+--lh-title:1.12; /* @kind other */
+--lh-body:1.5; /* @kind other */
+--lh-tight:1.2; /* @kind other */
+--track-display:-0.035em; /* @kind other */
+--track-title:-0.02em; /* @kind other */
+--track-body:-0.005em; /* @kind other */
+--track-mono:0.12em; /* @kind other */
+--track-micro:0.18em; /* @kind other */
+--weight-regular:400; /* @kind other */
+--weight-medium:500; /* @kind other */
+--weight-semibold:600; /* @kind other */
+--weight-bold:700; /* @kind other */
+--weight-black:800; /* @kind other */
+--type-hero:400 var(--size-display-xl)/0.94 var(--font-display); /* @kind font */
+--type-heading:700 var(--size-display-m)/1.12 var(--font-display); /* @kind font */
+--type-body:400 var(--size-body)/1.5 var(--font-body); /* @kind font */
+--type-label:500 var(--size-caption)/1.3 var(--font-mono) /* @kind font */
+}
