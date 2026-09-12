@@ -1,402 +1,2197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<link rel="stylesheet" href="_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/fonts.css">
-<link rel="stylesheet" href="_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/colors.css">
-<link rel="stylesheet" href="_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/typography.css">
-<link rel="stylesheet" href="_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/spacing.css">
-<link rel="stylesheet" href="_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/radius.css">
-<link rel="stylesheet" href="_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/elevation.css">
-<link rel="stylesheet" href="_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/motion.css">
-<link rel="stylesheet" href="_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/components/components.css">
-<link rel="stylesheet" href="_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/styles.css">
-<script src="_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/_ds_bundle.js"></script>
-<script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
-<script src="./image-slot.js"></script>
-<style>
-  html { scroll-behavior: smooth; }
-  body { margin:0; background: var(--surface-page); font-family: var(--font-body); color: var(--text-body); -webkit-font-smoothing: antialiased; }
-  a { color: var(--text-strong); text-decoration: none; }
-  a:hover { color: var(--ink-600); }
-  h1,h2,h3,p { margin: 0; }
-</style>
-</helmet>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./support.js"></script>
+  </head>
+  <body>
+    <x-dc>
+      <helmet>
+        <link
+          rel="stylesheet"
+          href="./_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/fonts.css"
+        />
+        <link
+          rel="stylesheet"
+          href="./_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/colors.css"
+        />
+        <link
+          rel="stylesheet"
+          href="./_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/typography.css"
+        />
+        <link
+          rel="stylesheet"
+          href="./_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/spacing.css"
+        />
+        <link
+          rel="stylesheet"
+          href="./_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/radius.css"
+        />
+        <link
+          rel="stylesheet"
+          href="./_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/elevation.css"
+        />
+        <link
+          rel="stylesheet"
+          href="./_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/tokens/motion.css"
+        />
+        <link
+          rel="stylesheet"
+          href="./_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/components/components.css"
+        />
+        <link
+          rel="stylesheet"
+          href="./_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/styles.css"
+        />
+        <script src="./_ds/esthetic-design-system-0d059df4-6535-42d6-8cab-4ec93b0be87c/_ds_bundle.js"></script>
+        <script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+        <script src="./image-slot.js"></script>
+        <style>
+          html {
+            scroll-behavior: smooth;
+          }
+          body {
+            margin: 0;
+            background: var(--surface-page);
+            font-family: var(--font-body);
+            color: var(--text-body);
+            -webkit-font-smoothing: antialiased;
+          }
+          a {
+            color: var(--text-strong);
+            text-decoration: none;
+          }
+          a:hover {
+            color: var(--ink-600);
+          }
+          h1,
+          h2,
+          h3,
+          p {
+            margin: 0;
+          }
+        </style>
+      </helmet>
 
-<div id="srt-root" style="min-height:100vh; background:var(--surface-page)">
+      <div
+        id="srt-root"
+        style="min-height: 100vh; background: var(--surface-page)"
+      >
+        <header
+          style="
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 12px clamp(16px, 4vw, 40px);
+            display: flex;
+            justify-content: center;
+          "
+        >
+          <nav
+            style="
+              width: 100%;
+              max-width: 1200px;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              padding: 8px 10px 8px 20px;
+              border-radius: 999px;
+              background: rgba(255, 255, 255, 0.72);
+              backdrop-filter: blur(18px);
+              -webkit-backdrop-filter: blur(18px);
+              box-shadow:
+                inset 0 0 0 1px var(--line-hairline),
+                0 6px 18px -6px rgba(8, 9, 10, 0.14);
+            "
+          >
+            <a
+              href="#hero"
+              style="
+                display: flex;
+                align-items: baseline;
+                gap: 10px;
+                flex: 1;
+                min-width: 0;
+              "
+            >
+              <span
+                style="
+                  font-family: var(--font-body);
+                  font-weight: 800;
+                  font-size: 20px;
+                  letter-spacing: -0.03em;
+                  color: var(--text-strong);
+                "
+                >SRT</span
+              >
+              <span
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 9.5px;
+                  letter-spacing: 0.16em;
+                  text-transform: uppercase;
+                  color: var(--text-muted);
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                "
+                >Service Réparation Téléphone Mobile</span
+              >
+            </a>
+            <div style="display: flex; align-items: center; gap: 4px">
+              <a
+                href="#services"
+                data-en="Services"
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  padding: 8px 12px;
+                  border-radius: 999px;
+                  color: var(--text-body);
+                "
+                style-hover="background:var(--surface-sunken)"
+                >Services</a
+              >
+              <a
+                href="#tarifs"
+                data-en="Pricing"
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  padding: 8px 12px;
+                  border-radius: 999px;
+                  color: var(--text-body);
+                "
+                style-hover="background:var(--surface-sunken)"
+                >Tarifs</a
+              >
+              <a
+                href="#galerie"
+                data-en="Gallery"
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  padding: 8px 12px;
+                  border-radius: 999px;
+                  color: var(--text-body);
+                "
+                style-hover="background:var(--surface-sunken)"
+                >Galerie</a
+              >
+            </div>
+            <div
+              id="srt-lang"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 2px;
+                padding: 3px;
+                border-radius: 999px;
+                background: var(--surface-sunken);
+              "
+            >
+              <button
+                type="button"
+                data-lang="fr"
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.12em;
+                  border: 0;
+                  cursor: pointer;
+                  padding: 6px 10px;
+                  border-radius: 999px;
+                  background: var(--ink-950);
+                  color: var(--ink-000);
+                "
+              >
+                FR
+              </button>
+              <button
+                type="button"
+                data-lang="en"
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.12em;
+                  border: 0;
+                  cursor: pointer;
+                  padding: 6px 10px;
+                  border-radius: 999px;
+                  background: transparent;
+                  color: var(--text-muted);
+                "
+              >
+                EN
+              </button>
+            </div>
+            <a
+              href="https://wa.me/237655698117"
+              target="_blank"
+              rel="noopener"
+              class="mte-btn mte-btn--primary mte-btn--sm"
+              style="flex: none"
+              >WhatsApp</a
+            >
+          </nav>
+        </header>
 
-  <header style="position:sticky; top:0; z-index:50; padding:12px clamp(16px,4vw,40px); display:flex; justify-content:center">
-    <nav style="width:100%; max-width:1200px; display:flex; align-items:center; gap:20px; padding:8px 10px 8px 20px; border-radius:999px; background:rgba(255,255,255,.72); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); box-shadow:inset 0 0 0 1px var(--line-hairline), 0 6px 18px -6px rgba(8,9,10,.14)">
-      <a href="#hero" style="display:flex; align-items:baseline; gap:10px; flex:1; min-width:0">
-        <span style="font-family:var(--font-body); font-weight:800; font-size:20px; letter-spacing:-.03em; color:var(--text-strong)">SRT</span>
-        <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap">Service Réparation Téléphone Mobile</span>
-      </a>
-      <div style="display:flex; align-items:center; gap:4px">
-        <a href="#services" data-en="Services" style="font-family:var(--font-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:8px 12px; border-radius:999px; color:var(--text-body)" style-hover="background:var(--surface-sunken)">Services</a>
-        <a href="#tarifs" data-en="Pricing" style="font-family:var(--font-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:8px 12px; border-radius:999px; color:var(--text-body)" style-hover="background:var(--surface-sunken)">Tarifs</a>
-        <a href="#galerie" data-en="Gallery" style="font-family:var(--font-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:8px 12px; border-radius:999px; color:var(--text-body)" style-hover="background:var(--surface-sunken)">Galerie</a>
-      </div>
-      <div id="srt-lang" style="display:flex; align-items:center; gap:2px; padding:3px; border-radius:999px; background:var(--surface-sunken)">
-        <button type="button" data-lang="fr" style="font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; border:0; cursor:pointer; padding:6px 10px; border-radius:999px; background:var(--ink-950); color:var(--ink-000)">FR</button>
-        <button type="button" data-lang="en" style="font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; border:0; cursor:pointer; padding:6px 10px; border-radius:999px; background:transparent; color:var(--text-muted)">EN</button>
-      </div>
-      <a href="https://wa.me/237655698117" target="_blank" rel="noopener" class="mte-btn mte-btn--primary mte-btn--sm" style="flex:none">WhatsApp</a>
-    </nav>
-  </header>
+        <main
+          style="
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 40px);
+          "
+        >
+          <section
+            id="hero"
+            style="
+              border-radius: 32px;
+              background: var(--ink-950);
+              padding: clamp(24px, 4vw, 48px);
+              display: grid;
+              grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 300px), 1fr)
+              );
+              gap: clamp(24px, 3vw, 40px);
+              align-items: center;
+            "
+          >
+            <div style="display: flex; flex-direction: column; gap: 24px">
+              <span
+                class="mte-badge mte-badge--accent"
+                data-en="In 30 min · express"
+                style="align-self: flex-start"
+                >En 30 min · express</span
+              >
+              <h1
+                style="
+                  font-family: var(--font-body);
+                  color: var(--ink-000);
+                  font-size: clamp(34px, 6.4vw, 76px);
+                  line-height: 0.94;
+                  letter-spacing: -0.035em;
+                  font-weight: 400;
+                  text-wrap: pretty;
+                "
+              >
+                <span
+                  data-en="Fast, reliable phone repair"
+                  style="display: block"
+                  >Réparation rapide, fiable</span
+                >
+                <span
+                  data-en="and guaranteed."
+                  style="display: block; font-weight: 800"
+                  >et garantie.</span
+                >
+              </h1>
+              <p
+                data-en="Certified mobile phone repair technician in Yaoundé. Express repair, on-site repair at your home or office. Free diagnostics and a warranty on every part we fit."
+                style="
+                  color: var(--ink-200);
+                  font-size: clamp(14px, 1.4vw, 17px);
+                  line-height: 1.5;
+                  max-width: 56ch;
+                "
+              >
+                Technicien certifié en réparation téléphone mobile à Yaoundé.
+                Réparation express, réparation à domicile. Diagnostic gratuit et
+                garantie sur toutes nos pièces.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 12px">
+                <a
+                  href="https://wa.me/237655698117?text=Bonjour%20SRT%2C%20je%20souhaite%20faire%20r%C3%A9parer%20mon%20t%C3%A9l%C3%A9phone."
+                  target="_blank"
+                  rel="noopener"
+                  class="mte-btn mte-btn--accent mte-btn--lg"
+                  data-en="Book on WhatsApp"
+                  >Réserver sur WhatsApp</a
+                >
+                <a
+                  href="#tarifs"
+                  class="mte-btn mte-btn--glass mte-btn--lg"
+                  data-en="View pricing"
+                  >Voir les tarifs</a
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 8px 28px;
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.16em;
+                  text-transform: uppercase;
+                  color: var(--ink-300);
+                "
+              >
+                <span>Yaoundé · Marché Central, Face Fokou</span>
+                <span data-en="Open 24/7">Ouvert 24h/24 · 7j/7</span>
+                <span>+237 655 698 117</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px">
+              <div
+                style="
+                  border-radius: 20px;
+                  overflow: hidden;
+                  aspect-ratio: 4/5;
+                  max-height: 560px;
+                "
+              >
+                <image-slot
+                  id="srt-hero"
+                  shape="rect"
+                  fit="cover"
+                  src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+                  credit="Photo by Clint Bustrillos on Unsplash"
+                  credit-href="https://unsplash.com/@clintbustrillos"
+                  placeholder="Photo de couverture"
+                ></image-slot>
+              </div>
+              <p
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 9px;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  color: var(--ink-500);
+                "
+              >
+                Photo :
+                <a
+                  href="https://unsplash.com/@clintbustrillos?utm_source=srt_site&utm_medium=referral"
+                  target="_blank"
+                  rel="noopener"
+                  style="color: var(--ink-400)"
+                  >Clint Bustrillos</a
+                >
+                /
+                <a
+                  href="https://unsplash.com/?utm_source=srt_site&utm_medium=referral"
+                  target="_blank"
+                  rel="noopener"
+                  style="color: var(--ink-400)"
+                  >Unsplash</a
+                >
+              </p>
+            </div>
+          </section>
 
-  <main style="max-width:1200px; margin:0 auto; padding:0 clamp(16px,4vw,40px)">
+          <section
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+              gap: 1px;
+              background: var(--line-hairline);
+              margin-top: 1px;
+              border-radius: 20px;
+              overflow: hidden;
+            "
+          >
+            <div style="background: var(--surface-card); padding: 24px">
+              <div
+                style="
+                  font-family: var(--font-body);
+                  font-size: 30px;
+                  font-weight: 800;
+                  letter-spacing: -0.03em;
+                  color: var(--text-strong);
+                "
+              >
+                30 min
+              </div>
+              <div
+                data-en="Express repair"
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.16em;
+                  text-transform: uppercase;
+                  color: var(--text-muted);
+                  margin-top: 6px;
+                "
+              >
+                Réparation express
+              </div>
+            </div>
+            <div style="background: var(--surface-card); padding: 24px">
+              <div
+                data-en="Free"
+                style="
+                  font-family: var(--font-body);
+                  font-size: 30px;
+                  font-weight: 800;
+                  letter-spacing: -0.03em;
+                  color: var(--text-strong);
+                "
+              >
+                Gratuit
+              </div>
+              <div
+                data-en="Diagnostics"
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.16em;
+                  text-transform: uppercase;
+                  color: var(--text-muted);
+                  margin-top: 6px;
+                "
+              >
+                Diagnostic
+              </div>
+            </div>
+            <div style="background: var(--surface-card); padding: 24px">
+              <div
+                data-en="Warranty"
+                style="
+                  font-family: var(--font-body);
+                  font-size: 30px;
+                  font-weight: 800;
+                  letter-spacing: -0.03em;
+                  color: var(--text-strong);
+                "
+              >
+                Garantie
+              </div>
+              <div
+                data-en="On every part fitted"
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.16em;
+                  text-transform: uppercase;
+                  color: var(--text-muted);
+                  margin-top: 6px;
+                "
+              >
+                Sur nos pièces
+              </div>
+            </div>
+            <div style="background: var(--surface-card); padding: 24px">
+              <div
+                data-en="At home"
+                style="
+                  font-family: var(--font-body);
+                  font-size: 30px;
+                  font-weight: 800;
+                  letter-spacing: -0.03em;
+                  color: var(--text-strong);
+                "
+              >
+                À domicile
+              </div>
+              <div
+                data-en="We come to you — Yaoundé"
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.16em;
+                  text-transform: uppercase;
+                  color: var(--text-muted);
+                  margin-top: 6px;
+                "
+              >
+                Nous venons chez vous
+              </div>
+            </div>
+          </section>
 
-    <section id="hero" style="border-radius:32px; background:var(--ink-950); padding:clamp(24px,4vw,48px); display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(24px,3vw,40px); align-items:center">
-      <div style="display:flex; flex-direction:column; gap:24px">
-        <span class="mte-badge mte-badge--accent" data-en="In 30 min · express" style="align-self:flex-start">En 30 min · express</span>
-        <h1 style="font-family:var(--font-body); color:var(--ink-000); font-size:clamp(34px,6.4vw,76px); line-height:.94; letter-spacing:-.035em; font-weight:400; text-wrap:pretty">
-          <span data-en="Fast, reliable phone repair" style="display:block">Réparation rapide, fiable</span>
-          <span data-en="and guaranteed." style="display:block; font-weight:800">et garantie.</span>
-        </h1>
-        <p data-en="Certified mobile phone repair technician in Yaoundé. Express repair, on-site repair at your home or office. Free diagnostics and a warranty on every part we fit." style="color:var(--ink-200); font-size:clamp(14px,1.4vw,17px); line-height:1.5; max-width:56ch">Technicien certifié en réparation téléphone mobile à Yaoundé. Réparation express, réparation à domicile. Diagnostic gratuit et garantie sur toutes nos pièces.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:12px">
-          <a href="https://wa.me/237655698117?text=Bonjour%20SRT%2C%20je%20souhaite%20faire%20r%C3%A9parer%20mon%20t%C3%A9l%C3%A9phone." target="_blank" rel="noopener" class="mte-btn mte-btn--accent mte-btn--lg" data-en="Book on WhatsApp">Réserver sur WhatsApp</a>
-          <a href="#tarifs" class="mte-btn mte-btn--glass mte-btn--lg" data-en="View pricing">Voir les tarifs</a>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px 28px; font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-300)">
-          <span>Yaoundé · Marché Central, Face Fokou</span>
-          <span data-en="Open 24/7">Ouvert 24h/24 · 7j/7</span>
-          <span>+237 655 698 117</span>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:10px">
-      <div style="border-radius:20px; overflow:hidden; aspect-ratio:4/5; max-height:560px">
-        <image-slot id="srt-hero" shape="rect" fit="cover" src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?fm=jpg&q=80&w=1600&auto=format&fit=crop" credit="Photo by Clint Bustrillos on Unsplash" credit-href="https://unsplash.com/@clintbustrillos" placeholder="Photo de couverture"></image-slot>
-      </div>
-        <p style="font-family:var(--font-mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-500)">Photo : <a href="https://unsplash.com/@clintbustrillos?utm_source=srt_site&utm_medium=referral" target="_blank" rel="noopener" style="color:var(--ink-400)">Clint Bustrillos</a> / <a href="https://unsplash.com/?utm_source=srt_site&utm_medium=referral" target="_blank" rel="noopener" style="color:var(--ink-400)">Unsplash</a></p>
-      </div>
-    </section>
+          <section id="services" style="padding: clamp(56px, 9vw, 120px) 0 0">
+            <div
+              style="
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                gap: 24px;
+                flex-wrap: wrap;
+                margin-bottom: 40px;
+              "
+            >
+              <div>
+                <div
+                  class="mte-monolabel"
+                  data-en="01 — Services"
+                  style="margin-bottom: 16px"
+                >
+                  01 — Services
+                </div>
+                <h2
+                  style="
+                    font-family: var(--font-body);
+                    font-size: clamp(28px, 4.4vw, 52px);
+                    line-height: 0.98;
+                    letter-spacing: -0.035em;
+                    font-weight: 400;
+                    color: var(--text-strong);
+                    max-width: 20ch;
+                    text-wrap: pretty;
+                  "
+                >
+                  <span data-en="Everything we repair on an "
+                    >Tout ce que nous réparons sur un </span
+                  ><span data-en="iPhone." style="font-weight: 800"
+                    >iPhone.</span
+                  >
+                </h2>
+              </div>
+              <p
+                data-en="iPhone specialists. Bring the phone to Marché Central or ask for an on-site visit."
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10.5px;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  color: var(--text-muted);
+                  line-height: 1.8;
+                  max-width: 32ch;
+                "
+              >
+                Spécialistes iPhone. Déposez le téléphone au Marché Central ou
+                demandez une intervention à domicile.
+              </p>
+            </div>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 16px;
+              "
+            >
+              <div
+                class="mte-card mte-card--raised mte-card--interactive"
+                style="
+                  padding: 24px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 14px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <i
+                    data-lucide="zap"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      stroke-width: 1.75;
+                      color: var(--text-strong);
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--text-faint);
+                    "
+                    >01</span
+                  >
+                </div>
+                <h3
+                  data-en="Express repair"
+                  style="
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: -0.01em;
+                    color: var(--text-strong);
+                    line-height: 1.2;
+                  "
+                >
+                  Réparation express
+                </h3>
+                <p
+                  data-en="Diagnostics and repair on the spot — most screens done in 30 minutes."
+                  style="
+                    font-size: 13.5px;
+                    line-height: 1.5;
+                    color: var(--text-muted);
+                  "
+                >
+                  Diagnostic et remise en service rapides — la plupart des
+                  écrans en 30 minutes.
+                </p>
+              </div>
+              <div
+                class="mte-card mte-card--raised mte-card--interactive"
+                style="
+                  padding: 24px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 14px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <i
+                    data-lucide="house"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      stroke-width: 1.75;
+                      color: var(--text-strong);
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--text-faint);
+                    "
+                    >02</span
+                  >
+                </div>
+                <h3
+                  data-en="On-site repair"
+                  style="
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: -0.01em;
+                    color: var(--text-strong);
+                    line-height: 1.2;
+                  "
+                >
+                  Réparation à domicile
+                </h3>
+                <p
+                  data-en="We travel to your home or office, anywhere in Yaoundé."
+                  style="
+                    font-size: 13.5px;
+                    line-height: 1.5;
+                    color: var(--text-muted);
+                  "
+                >
+                  Nous nous déplaçons chez vous ou à votre bureau, partout dans
+                  Yaoundé.
+                </p>
+              </div>
+              <div
+                class="mte-card mte-card--raised mte-card--interactive"
+                style="
+                  padding: 24px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 14px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <i
+                    data-lucide="smartphone"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      stroke-width: 1.75;
+                      color: var(--text-strong);
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--text-faint);
+                    "
+                    >03</span
+                  >
+                </div>
+                <h3
+                  data-en="Screen / LCD display"
+                  style="
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: -0.01em;
+                    color: var(--text-strong);
+                    line-height: 1.2;
+                  "
+                >
+                  Écran / afficheur LCD
+                </h3>
+                <p
+                  data-en="Screen replacement, incell displays included. Prices published below."
+                  style="
+                    font-size: 13.5px;
+                    line-height: 1.5;
+                    color: var(--text-muted);
+                  "
+                >
+                  Remplacement d'écran, afficheurs incell inclus. Tarifs publiés
+                  ci-dessous.
+                </p>
+              </div>
+              <div
+                class="mte-card mte-card--raised mte-card--interactive"
+                style="
+                  padding: 24px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 14px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <i
+                    data-lucide="battery-charging"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      stroke-width: 1.75;
+                      color: var(--text-strong);
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--text-faint);
+                    "
+                    >04</span
+                  >
+                </div>
+                <h3
+                  data-en="Battery"
+                  style="
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: -0.01em;
+                    color: var(--text-strong);
+                    line-height: 1.2;
+                  "
+                >
+                  Batterie
+                </h3>
+                <p
+                  data-en="Battery replacement to restore original running time."
+                  style="
+                    font-size: 13.5px;
+                    line-height: 1.5;
+                    color: var(--text-muted);
+                  "
+                >
+                  Remplacement de la batterie pour retrouver une autonomie
+                  d'origine.
+                </p>
+              </div>
+              <div
+                class="mte-card mte-card--raised mte-card--interactive"
+                style="
+                  padding: 24px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 14px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <i
+                    data-lucide="unlock"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      stroke-width: 1.75;
+                      color: var(--text-strong);
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--text-faint);
+                    "
+                    >05</span
+                  >
+                </div>
+                <h3
+                  data-en="iCloud removal"
+                  style="
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: -0.01em;
+                    color: var(--text-strong);
+                    line-height: 1.2;
+                  "
+                >
+                  Suppression d'iCloud
+                </h3>
+                <p
+                  data-en="iCloud account unlock and removal."
+                  style="
+                    font-size: 13.5px;
+                    line-height: 1.5;
+                    color: var(--text-muted);
+                  "
+                >
+                  Déverrouillage et suppression du compte iCloud.
+                </p>
+              </div>
+              <div
+                class="mte-card mte-card--raised mte-card--interactive"
+                style="
+                  padding: 24px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 14px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <i
+                    data-lucide="droplets"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      stroke-width: 1.75;
+                      color: var(--text-strong);
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--text-faint);
+                    "
+                    >06</span
+                  >
+                </div>
+                <h3
+                  data-en="Water damage"
+                  style="
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: -0.01em;
+                    color: var(--text-strong);
+                    line-height: 1.2;
+                  "
+                >
+                  Dégâts causés par l'eau
+                </h3>
+                <p
+                  data-en="Cleaning, drying and board-level repair after immersion."
+                  style="
+                    font-size: 13.5px;
+                    line-height: 1.5;
+                    color: var(--text-muted);
+                  "
+                >
+                  Nettoyage, séchage et réparation de la carte après immersion.
+                </p>
+              </div>
+              <div
+                class="mte-card mte-card--raised mte-card--interactive"
+                style="
+                  padding: 24px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 14px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <i
+                    data-lucide="circle-dot"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      stroke-width: 1.75;
+                      color: var(--text-strong);
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--text-faint);
+                    "
+                    >07</span
+                  >
+                </div>
+                <h3
+                  data-en="Home button"
+                  style="
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: -0.01em;
+                    color: var(--text-strong);
+                    line-height: 1.2;
+                  "
+                >
+                  Bouton d'accueil
+                </h3>
+                <p
+                  data-en="Home button and haptic return repair."
+                  style="
+                    font-size: 13.5px;
+                    line-height: 1.5;
+                    color: var(--text-muted);
+                  "
+                >
+                  Réparation du bouton d'accueil et du retour tactile.
+                </p>
+              </div>
+              <div
+                class="mte-card mte-card--raised mte-card--interactive"
+                style="
+                  padding: 24px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 14px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <i
+                    data-lucide="cable"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      stroke-width: 1.75;
+                      color: var(--text-strong);
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--text-faint);
+                    "
+                    >08</span
+                  >
+                </div>
+                <h3
+                  data-en="Charging port"
+                  style="
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: -0.01em;
+                    color: var(--text-strong);
+                    line-height: 1.2;
+                  "
+                >
+                  Port de chargement
+                </h3>
+                <p
+                  data-en="Charging connector and microphone replacement."
+                  style="
+                    font-size: 13.5px;
+                    line-height: 1.5;
+                    color: var(--text-muted);
+                  "
+                >
+                  Remplacement du connecteur de charge et du micro.
+                </p>
+              </div>
+              <div
+                class="mte-card mte-card--raised mte-card--interactive"
+                style="
+                  padding: 24px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 14px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <i
+                    data-lucide="scan-line"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      stroke-width: 1.75;
+                      color: var(--text-strong);
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--text-faint);
+                    "
+                    >09</span
+                  >
+                </div>
+                <h3
+                  data-en="Rear glass"
+                  style="
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: -0.01em;
+                    color: var(--text-strong);
+                    line-height: 1.2;
+                  "
+                >
+                  Vitre arrière
+                </h3>
+                <p
+                  data-en="Rear glass swapped with a blue laser separation machine, no marks."
+                  style="
+                    font-size: 13.5px;
+                    line-height: 1.5;
+                    color: var(--text-muted);
+                  "
+                >
+                  Changement de la vitre arrière à la machine laser bleu, sans
+                  marque.
+                </p>
+              </div>
+              <div
+                class="mte-card mte-card--raised mte-card--interactive"
+                style="
+                  padding: 24px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 14px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <i
+                    data-lucide="package"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      stroke-width: 1.75;
+                      color: var(--text-strong);
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--text-faint);
+                    "
+                    >10</span
+                  >
+                </div>
+                <h3
+                  data-en="Spare parts"
+                  style="
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: -0.01em;
+                    color: var(--text-strong);
+                    line-height: 1.2;
+                  "
+                >
+                  Pièces de rechange
+                </h3>
+                <p
+                  data-en="iPhone rear housings and spare parts available in stock."
+                  style="
+                    font-size: 13.5px;
+                    line-height: 1.5;
+                    color: var(--text-muted);
+                  "
+                >
+                  Coques arrière iPhone et pièces détachées disponibles en
+                  stock.
+                </p>
+              </div>
+            </div>
+          </section>
 
-    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px; background:var(--line-hairline); margin-top:1px; border-radius:20px; overflow:hidden">
-      <div style="background:var(--surface-card); padding:24px">
-        <div style="font-family:var(--font-body); font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--text-strong)">30 min</div>
-        <div data-en="Express repair" style="font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-muted); margin-top:6px">Réparation express</div>
-      </div>
-      <div style="background:var(--surface-card); padding:24px">
-        <div data-en="Free" style="font-family:var(--font-body); font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--text-strong)">Gratuit</div>
-        <div data-en="Diagnostics" style="font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-muted); margin-top:6px">Diagnostic</div>
-      </div>
-      <div style="background:var(--surface-card); padding:24px">
-        <div data-en="Warranty" style="font-family:var(--font-body); font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--text-strong)">Garantie</div>
-        <div data-en="On every part fitted" style="font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-muted); margin-top:6px">Sur nos pièces</div>
-      </div>
-      <div style="background:var(--surface-card); padding:24px">
-        <div data-en="At home" style="font-family:var(--font-body); font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--text-strong)">À domicile</div>
-        <div data-en="We come to you — Yaoundé" style="font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-muted); margin-top:6px">Nous venons chez vous</div>
-      </div>
-    </section>
+          <section id="tarifs" style="padding: clamp(56px, 9vw, 120px) 0 0">
+            <div
+              class="mte-monolabel"
+              data-en="02 — Pricing"
+              style="margin-bottom: 16px"
+            >
+              02 — Tarifs
+            </div>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: clamp(24px, 4vw, 56px);
+                align-items: start;
+              "
+            >
+              <div style="display: flex; flex-direction: column; gap: 24px">
+                <h2
+                  style="
+                    font-family: var(--font-body);
+                    font-size: clamp(28px, 4.4vw, 52px);
+                    line-height: 0.98;
+                    letter-spacing: -0.035em;
+                    font-weight: 400;
+                    color: var(--text-strong);
+                    text-wrap: pretty;
+                  "
+                >
+                  <span data-en="Screen replacement "
+                    >Remplacement d'écran </span
+                  ><span data-en="price list." style="font-weight: 800"
+                    >grille tarifaire.</span
+                  >
+                </h2>
+                <p
+                  data-en="Every price includes free diagnostics and a warranty on the part fitted. Other repairs — battery, charging port, water damage, rear glass — are quoted after the free diagnostic."
+                  style="font-size: 15px; line-height: 1.5; max-width: 44ch"
+                >
+                  Tous les prix comprennent le diagnostic gratuit et la garantie
+                  sur la pièce posée. Les autres réparations — batterie, port de
+                  chargement, dégâts d'eau, vitre arrière — sont chiffrées après
+                  le diagnostic gratuit.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px">
+                  <span
+                    class="mte-badge mte-badge--outline"
+                    data-en="Free diagnostics"
+                    >Diagnostic gratuit</span
+                  >
+                  <span
+                    class="mte-badge mte-badge--outline"
+                    data-en="Warranty on parts"
+                    >Garantie sur nos pièces</span
+                  >
+                  <span
+                    class="mte-badge mte-badge--outline"
+                    data-en="Incell screens available"
+                    >Afficheurs incell</span
+                  >
+                </div>
+                <a
+                  href="https://wa.me/237655698117?text=Bonjour%20SRT%2C%20je%20voudrais%20un%20devis%20pour%20mon%20iPhone."
+                  target="_blank"
+                  rel="noopener"
+                  class="mte-btn mte-btn--primary mte-btn--md"
+                  data-en="Get a quote"
+                  style="align-self: flex-start"
+                  >Demander un devis</a
+                >
+              </div>
+              <div
+                class="mte-card mte-card--raised"
+                style="padding: clamp(16px, 2.4vw, 28px)"
+              >
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    padding: 0 4px 14px;
+                    border-bottom: 1px solid var(--line-strong);
+                  "
+                >
+                  <span class="mte-monolabel" data-en="Model">Modèle</span>
+                  <span class="mte-monolabel" data-en="Screen — FCFA"
+                    >Afficheur — FCFA</span
+                  >
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    gap: 16px;
+                    padding: 15px 4px;
+                    border-bottom: 1px solid var(--line-hairline);
+                  "
+                >
+                  <span style="font-size: 15px; color: var(--text-body)"
+                    >iPhone X / Xs</span
+                  >
+                  <span
+                    style="
+                      font-family: var(--font-body);
+                      font-size: 19px;
+                      font-weight: 700;
+                      letter-spacing: -0.02em;
+                      color: var(--text-strong);
+                      white-space: nowrap;
+                    "
+                    >12 000 F</span
+                  >
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    gap: 16px;
+                    padding: 15px 4px;
+                    border-bottom: 1px solid var(--line-hairline);
+                  "
+                >
+                  <span style="font-size: 15px; color: var(--text-body)"
+                    >iPhone XR / 11</span
+                  >
+                  <span
+                    style="
+                      font-family: var(--font-body);
+                      font-size: 19px;
+                      font-weight: 700;
+                      letter-spacing: -0.02em;
+                      color: var(--text-strong);
+                      white-space: nowrap;
+                    "
+                    >13 500 F</span
+                  >
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    gap: 16px;
+                    padding: 15px 4px;
+                    border-bottom: 1px solid var(--line-hairline);
+                  "
+                >
+                  <span style="font-size: 15px; color: var(--text-body)"
+                    >iPhone 11 Pro / 12</span
+                  >
+                  <span
+                    style="
+                      font-family: var(--font-body);
+                      font-size: 19px;
+                      font-weight: 700;
+                      letter-spacing: -0.02em;
+                      color: var(--text-strong);
+                      white-space: nowrap;
+                    "
+                    >16 000 F</span
+                  >
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    gap: 16px;
+                    padding: 15px 4px;
+                    border-bottom: 1px solid var(--line-hairline);
+                  "
+                >
+                  <span style="font-size: 15px; color: var(--text-body)"
+                    >iPhone 11 Pro Max / Xs Max</span
+                  >
+                  <span
+                    style="
+                      font-family: var(--font-body);
+                      font-size: 19px;
+                      font-weight: 700;
+                      letter-spacing: -0.02em;
+                      color: var(--text-strong);
+                      white-space: nowrap;
+                    "
+                    >17 000 F</span
+                  >
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    gap: 16px;
+                    padding: 15px 4px;
+                    border-bottom: 1px solid var(--line-hairline);
+                  "
+                >
+                  <span style="font-size: 15px; color: var(--text-body)"
+                    >iPhone 13 / 14</span
+                  >
+                  <span
+                    style="
+                      font-family: var(--font-body);
+                      font-size: 19px;
+                      font-weight: 700;
+                      letter-spacing: -0.02em;
+                      color: var(--text-strong);
+                      white-space: nowrap;
+                    "
+                    >23 000 F</span
+                  >
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    gap: 16px;
+                    padding: 15px 4px;
+                    border-bottom: 1px solid var(--line-hairline);
+                  "
+                >
+                  <span style="font-size: 15px; color: var(--text-body)"
+                    >iPhone 14 Pro Max</span
+                  >
+                  <span
+                    data-en="On quote"
+                    style="
+                      font-family: var(--font-body);
+                      font-size: 19px;
+                      font-weight: 700;
+                      letter-spacing: -0.02em;
+                      color: var(--text-strong);
+                      white-space: nowrap;
+                    "
+                    >Sur devis</span
+                  >
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    gap: 16px;
+                    padding: 15px 4px;
+                    border-bottom: 1px solid var(--line-hairline);
+                  "
+                >
+                  <span style="font-size: 15px; color: var(--text-body)"
+                    >iPhone 15 Pro Max</span
+                  >
+                  <span
+                    style="
+                      font-family: var(--font-body);
+                      font-size: 19px;
+                      font-weight: 700;
+                      letter-spacing: -0.02em;
+                      color: var(--text-strong);
+                      white-space: nowrap;
+                    "
+                    >70 000 F</span
+                  >
+                </div>
+                <p
+                  data-en="Prices for screen replacement, parts fitted in the workshop. Final price confirmed after the free diagnostic."
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 9.5px;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    line-height: 1.8;
+                    color: var(--text-faint);
+                    padding-top: 16px;
+                  "
+                >
+                  Prix du remplacement d'afficheur, pose en atelier. Prix
+                  définitif confirmé après le diagnostic gratuit.
+                </p>
+              </div>
+            </div>
+          </section>
 
-    <section id="services" style="padding:clamp(56px,9vw,120px) 0 0">
-      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:40px">
-        <div>
-          <div class="mte-monolabel" data-en="01 — Services" style="margin-bottom:16px">01 — Services</div>
-          <h2 style="font-family:var(--font-body); font-size:clamp(28px,4.4vw,52px); line-height:.98; letter-spacing:-.035em; font-weight:400; color:var(--text-strong); max-width:20ch; text-wrap:pretty">
-            <span data-en="Everything we repair on an ">Tout ce que nous réparons sur un </span><span data-en="iPhone." style="font-weight:800">iPhone.</span>
-          </h2>
-        </div>
-        <p data-en="iPhone specialists. Bring the phone to Marché Central or ask for an on-site visit." style="font-family:var(--font-mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); line-height:1.8; max-width:32ch">Spécialistes iPhone. Déposez le téléphone au Marché Central ou demandez une intervention à domicile.</p>
-      </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:16px">
-        <div class="mte-card mte-card--raised mte-card--interactive" style="padding:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-          <div style="display:flex; align-items:center; justify-content:space-between; width:100%">
-            <i data-lucide="zap" style="width:20px; height:20px; stroke-width:1.75; color:var(--text-strong)"></i>
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--text-faint)">01</span>
-          </div>
-          <h3 data-en="Express repair" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--text-strong); line-height:1.2">Réparation express</h3>
-          <p data-en="Diagnostics and repair on the spot — most screens done in 30 minutes." style="font-size:13.5px; line-height:1.5; color:var(--text-muted)">Diagnostic et remise en service rapides — la plupart des écrans en 30 minutes.</p>
-        </div>
-        <div class="mte-card mte-card--raised mte-card--interactive" style="padding:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-          <div style="display:flex; align-items:center; justify-content:space-between; width:100%">
-            <i data-lucide="house" style="width:20px; height:20px; stroke-width:1.75; color:var(--text-strong)"></i>
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--text-faint)">02</span>
-          </div>
-          <h3 data-en="On-site repair" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--text-strong); line-height:1.2">Réparation à domicile</h3>
-          <p data-en="We travel to your home or office, anywhere in Yaoundé." style="font-size:13.5px; line-height:1.5; color:var(--text-muted)">Nous nous déplaçons chez vous ou à votre bureau, partout dans Yaoundé.</p>
-        </div>
-        <div class="mte-card mte-card--raised mte-card--interactive" style="padding:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-          <div style="display:flex; align-items:center; justify-content:space-between; width:100%">
-            <i data-lucide="smartphone" style="width:20px; height:20px; stroke-width:1.75; color:var(--text-strong)"></i>
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--text-faint)">03</span>
-          </div>
-          <h3 data-en="Screen / LCD display" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--text-strong); line-height:1.2">Écran / afficheur LCD</h3>
-          <p data-en="Screen replacement, incell displays included. Prices published below." style="font-size:13.5px; line-height:1.5; color:var(--text-muted)">Remplacement d'écran, afficheurs incell inclus. Tarifs publiés ci-dessous.</p>
-        </div>
-        <div class="mte-card mte-card--raised mte-card--interactive" style="padding:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-          <div style="display:flex; align-items:center; justify-content:space-between; width:100%">
-            <i data-lucide="battery-charging" style="width:20px; height:20px; stroke-width:1.75; color:var(--text-strong)"></i>
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--text-faint)">04</span>
-          </div>
-          <h3 data-en="Battery" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--text-strong); line-height:1.2">Batterie</h3>
-          <p data-en="Battery replacement to restore original running time." style="font-size:13.5px; line-height:1.5; color:var(--text-muted)">Remplacement de la batterie pour retrouver une autonomie d'origine.</p>
-        </div>
-        <div class="mte-card mte-card--raised mte-card--interactive" style="padding:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-          <div style="display:flex; align-items:center; justify-content:space-between; width:100%">
-            <i data-lucide="unlock" style="width:20px; height:20px; stroke-width:1.75; color:var(--text-strong)"></i>
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--text-faint)">05</span>
-          </div>
-          <h3 data-en="iCloud removal" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--text-strong); line-height:1.2">Suppression d'iCloud</h3>
-          <p data-en="iCloud account unlock and removal." style="font-size:13.5px; line-height:1.5; color:var(--text-muted)">Déverrouillage et suppression du compte iCloud.</p>
-        </div>
-        <div class="mte-card mte-card--raised mte-card--interactive" style="padding:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-          <div style="display:flex; align-items:center; justify-content:space-between; width:100%">
-            <i data-lucide="droplets" style="width:20px; height:20px; stroke-width:1.75; color:var(--text-strong)"></i>
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--text-faint)">06</span>
-          </div>
-          <h3 data-en="Water damage" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--text-strong); line-height:1.2">Dégâts causés par l'eau</h3>
-          <p data-en="Cleaning, drying and board-level repair after immersion." style="font-size:13.5px; line-height:1.5; color:var(--text-muted)">Nettoyage, séchage et réparation de la carte après immersion.</p>
-        </div>
-        <div class="mte-card mte-card--raised mte-card--interactive" style="padding:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-          <div style="display:flex; align-items:center; justify-content:space-between; width:100%">
-            <i data-lucide="circle-dot" style="width:20px; height:20px; stroke-width:1.75; color:var(--text-strong)"></i>
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--text-faint)">07</span>
-          </div>
-          <h3 data-en="Home button" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--text-strong); line-height:1.2">Bouton d'accueil</h3>
-          <p data-en="Home button and haptic return repair." style="font-size:13.5px; line-height:1.5; color:var(--text-muted)">Réparation du bouton d'accueil et du retour tactile.</p>
-        </div>
-        <div class="mte-card mte-card--raised mte-card--interactive" style="padding:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-          <div style="display:flex; align-items:center; justify-content:space-between; width:100%">
-            <i data-lucide="cable" style="width:20px; height:20px; stroke-width:1.75; color:var(--text-strong)"></i>
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--text-faint)">08</span>
-          </div>
-          <h3 data-en="Charging port" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--text-strong); line-height:1.2">Port de chargement</h3>
-          <p data-en="Charging connector and microphone replacement." style="font-size:13.5px; line-height:1.5; color:var(--text-muted)">Remplacement du connecteur de charge et du micro.</p>
-        </div>
-        <div class="mte-card mte-card--raised mte-card--interactive" style="padding:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-          <div style="display:flex; align-items:center; justify-content:space-between; width:100%">
-            <i data-lucide="scan-line" style="width:20px; height:20px; stroke-width:1.75; color:var(--text-strong)"></i>
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--text-faint)">09</span>
-          </div>
-          <h3 data-en="Rear glass" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--text-strong); line-height:1.2">Vitre arrière</h3>
-          <p data-en="Rear glass swapped with a blue laser separation machine, no marks." style="font-size:13.5px; line-height:1.5; color:var(--text-muted)">Changement de la vitre arrière à la machine laser bleu, sans marque.</p>
-        </div>
-        <div class="mte-card mte-card--raised mte-card--interactive" style="padding:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-          <div style="display:flex; align-items:center; justify-content:space-between; width:100%">
-            <i data-lucide="package" style="width:20px; height:20px; stroke-width:1.75; color:var(--text-strong)"></i>
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--text-faint)">10</span>
-          </div>
-          <h3 data-en="Spare parts" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--text-strong); line-height:1.2">Pièces de rechange</h3>
-          <p data-en="iPhone rear housings and spare parts available in stock." style="font-size:13.5px; line-height:1.5; color:var(--text-muted)">Coques arrière iPhone et pièces détachées disponibles en stock.</p>
-        </div>
-      </div>
-    </section>
+          <section id="pourquoi" style="padding: clamp(56px, 9vw, 120px) 0 0">
+            <div
+              class="mte-monolabel"
+              data-en="03 — Why us"
+              style="margin-bottom: 16px"
+            >
+              03 — Pourquoi nous
+            </div>
+            <div
+              style="
+                border-radius: 32px;
+                background: var(--ink-950);
+                padding: clamp(24px, 4vw, 56px);
+                display: flex;
+                flex-direction: column;
+                gap: clamp(24px, 4vw, 40px);
+              "
+            >
+              <h2
+                style="
+                  font-family: var(--font-body);
+                  font-size: clamp(26px, 3.6vw, 44px);
+                  line-height: 0.98;
+                  letter-spacing: -0.035em;
+                  font-weight: 400;
+                  color: var(--ink-000);
+                  max-width: 24ch;
+                  text-wrap: pretty;
+                "
+              >
+                <span data-en="Phone broken? ">Votre téléphone en panne ? </span
+                ><span data-en="No panic." style="font-weight: 800"
+                  >Pas de panique.</span
+                >
+              </h2>
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                  gap: 1px;
+                  background: var(--ink-950);
+                "
+              >
+                <div
+                  style="
+                    background: var(--ink-950);
+                    padding: 28px 24px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.14);
+                  "
+                >
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--acid-400);
+                    "
+                    >01</span
+                  >
+                  <h3
+                    data-en="No more queues"
+                    style="
+                      font-size: 17px;
+                      font-weight: 600;
+                      letter-spacing: -0.01em;
+                      color: var(--ink-000);
+                      line-height: 1.2;
+                    "
+                  >
+                    Plus de files d'attente
+                  </h3>
+                  <p
+                    data-en="Book online on WhatsApp or Facebook instead of walking the shops."
+                    style="
+                      font-size: 13.5px;
+                      line-height: 1.5;
+                      color: var(--ink-300);
+                    "
+                  >
+                    Réservez en ligne sur WhatsApp ou Facebook, sans courir les
+                    boutiques.
+                  </p>
+                </div>
+                <div
+                  style="
+                    background: var(--ink-950);
+                    padding: 28px 24px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.14);
+                  "
+                >
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--acid-400);
+                    "
+                    >02</span
+                  >
+                  <h3
+                    data-en="We come to you"
+                    style="
+                      font-size: 17px;
+                      font-weight: 600;
+                      letter-spacing: -0.01em;
+                      color: var(--ink-000);
+                      line-height: 1.2;
+                    "
+                  >
+                    Nous venons chez vous
+                  </h3>
+                  <p
+                    data-en="On-site repair across Yaoundé, at a time that suits you."
+                    style="
+                      font-size: 13.5px;
+                      line-height: 1.5;
+                      color: var(--ink-300);
+                    "
+                  >
+                    Intervention à domicile dans Yaoundé, au moment qui vous
+                    arrange.
+                  </p>
+                </div>
+                <div
+                  style="
+                    background: var(--ink-950);
+                    padding: 28px 24px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.14);
+                  "
+                >
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--acid-400);
+                    "
+                    >03</span
+                  >
+                  <h3
+                    data-en="Free diagnostics"
+                    style="
+                      font-size: 17px;
+                      font-weight: 600;
+                      letter-spacing: -0.01em;
+                      color: var(--ink-000);
+                      line-height: 1.2;
+                    "
+                  >
+                    Diagnostic gratuit
+                  </h3>
+                  <p
+                    data-en="We identify the fault and quote the price before touching the phone."
+                    style="
+                      font-size: 13.5px;
+                      line-height: 1.5;
+                      color: var(--ink-300);
+                    "
+                  >
+                    On identifie la panne et on annonce le prix avant de toucher
+                    au téléphone.
+                  </p>
+                </div>
+                <div
+                  style="
+                    background: var(--ink-950);
+                    padding: 28px 24px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.14);
+                  "
+                >
+                  <span
+                    style="
+                      font-family: var(--font-mono);
+                      font-size: 9.5px;
+                      letter-spacing: 0.16em;
+                      color: var(--acid-400);
+                    "
+                    >04</span
+                  >
+                  <h3
+                    data-en="Warranty on our parts"
+                    style="
+                      font-size: 17px;
+                      font-weight: 600;
+                      letter-spacing: -0.01em;
+                      color: var(--ink-000);
+                      line-height: 1.2;
+                    "
+                  >
+                    Garantie sur nos pièces
+                  </h3>
+                  <p
+                    data-en="Every part we fit is covered. Certified technician."
+                    style="
+                      font-size: 13.5px;
+                      line-height: 1.5;
+                      color: var(--ink-300);
+                    "
+                  >
+                    Chaque pièce posée est garantie. Technicien certifié.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-    <section id="tarifs" style="padding:clamp(56px,9vw,120px) 0 0">
-      <div class="mte-monolabel" data-en="02 — Pricing" style="margin-bottom:16px">02 — Tarifs</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(24px,4vw,56px); align-items:start">
-        <div style="display:flex; flex-direction:column; gap:24px">
-          <h2 style="font-family:var(--font-body); font-size:clamp(28px,4.4vw,52px); line-height:.98; letter-spacing:-.035em; font-weight:400; color:var(--text-strong); text-wrap:pretty">
-            <span data-en="Screen replacement ">Remplacement d'écran </span><span data-en="price list." style="font-weight:800">grille tarifaire.</span>
-          </h2>
-          <p data-en="Every price includes free diagnostics and a warranty on the part fitted. Other repairs — battery, charging port, water damage, rear glass — are quoted after the free diagnostic." style="font-size:15px; line-height:1.5; max-width:44ch">Tous les prix comprennent le diagnostic gratuit et la garantie sur la pièce posée. Les autres réparations — batterie, port de chargement, dégâts d'eau, vitre arrière — sont chiffrées après le diagnostic gratuit.</p>
-          <div style="display:flex; flex-wrap:wrap; gap:8px">
-            <span class="mte-badge mte-badge--outline" data-en="Free diagnostics">Diagnostic gratuit</span>
-            <span class="mte-badge mte-badge--outline" data-en="Warranty on parts">Garantie sur nos pièces</span>
-            <span class="mte-badge mte-badge--outline" data-en="Incell screens available">Afficheurs incell</span>
+          <section id="galerie" style="padding: clamp(56px, 9vw, 120px) 0 0">
+            <div
+              style="
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                gap: 24px;
+                flex-wrap: wrap;
+                margin-bottom: 40px;
+              "
+            >
+              <div>
+                <div
+                  class="mte-monolabel"
+                  data-en="04 — Gallery"
+                  style="margin-bottom: 16px"
+                >
+                  04 — Galerie
+                </div>
+                <h2
+                  style="
+                    font-family: var(--font-body);
+                    font-size: clamp(28px, 4.4vw, 52px);
+                    line-height: 0.98;
+                    letter-spacing: -0.035em;
+                    font-weight: 400;
+                    color: var(--text-strong);
+                    text-wrap: pretty;
+                  "
+                >
+                  <span data-en="Before ">Avant </span
+                  ><span data-en="after." style="font-weight: 800">après.</span>
+                </h2>
+              </div>
+              <p
+                data-en="Reference photos. Drop your own workshop photos into the frames."
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10.5px;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  color: var(--text-muted);
+                  max-width: 30ch;
+                  line-height: 1.8;
+                "
+              >
+                Photos d'illustration. Déposez vos propres photos d'atelier dans
+                les cadres.
+              </p>
+            </div>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(
+                  auto-fit,
+                  minmax(min(100%, 260px), 1fr)
+                );
+                gap: 16px;
+              "
+            >
+              <div class="mte-card mte-card--raised" style="padding: 12px">
+                <div
+                  style="
+                    border-radius: 12px;
+                    overflow: hidden;
+                    aspect-ratio: 4/5;
+                  "
+                >
+                  <image-slot
+                    id="srt-g1"
+                    shape="rect"
+                    fit="cover"
+                    src="https://images.unsplash.com/photo-1746005718004-1f992c399428?fm=jpg&q=80&w=1200&auto=format&fit=crop"
+                    credit="Photo by Fotografia Lui Vlad on Unsplash"
+                    credit-href="https://unsplash.com/@fotografialuivlad"
+                    placeholder="Avant — écran fissuré"
+                  ></image-slot>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 14px 6px 4px;
+                  "
+                >
+                  <span
+                    data-en="Diagnostic — iPhone stripped down"
+                    style="font-size: 13.5px; color: var(--text-body)"
+                    >Diagnostic — iPhone démonté</span
+                  >
+                  <span class="mte-monolabel" data-en="Before">Avant</span>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 9px;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    color: var(--text-faint);
+                    padding: 8px 6px 2px;
+                  "
+                >
+                  Photo :
+                  <a
+                    href="https://unsplash.com/@fotografialuivlad?utm_source=srt_site&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: var(--text-muted)"
+                    >Fotografia Lui Vlad</a
+                  >
+                  /
+                  <a
+                    href="https://unsplash.com/?utm_source=srt_site&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: var(--text-muted)"
+                    >Unsplash</a
+                  >
+                </p>
+              </div>
+              <div class="mte-card mte-card--raised" style="padding: 12px">
+                <div
+                  style="
+                    border-radius: 12px;
+                    overflow: hidden;
+                    aspect-ratio: 4/5;
+                  "
+                >
+                  <image-slot
+                    id="srt-g2"
+                    shape="rect"
+                    fit="cover"
+                    src="https://images.unsplash.com/photo-1596558450268-9c27524ba856?fm=jpg&q=80&w=1200&auto=format&fit=crop"
+                    credit="Photo by Thom Bradley on Unsplash"
+                    credit-href="https://unsplash.com/@thombradley"
+                    placeholder="Après — écran neuf"
+                  ></image-slot>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 14px 6px 4px;
+                  "
+                >
+                  <span
+                    data-en="Screen replaced — back in service"
+                    style="font-size: 13.5px; color: var(--text-body)"
+                    >Écran remplacé — remis en service</span
+                  >
+                  <span
+                    class="mte-monolabel mte-monolabel--highlight"
+                    data-en="After"
+                    >Après</span
+                  >
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 9px;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    color: var(--text-faint);
+                    padding: 8px 6px 2px;
+                  "
+                >
+                  Photo :
+                  <a
+                    href="https://unsplash.com/@thombradley?utm_source=srt_site&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: var(--text-muted)"
+                    >Thom Bradley</a
+                  >
+                  /
+                  <a
+                    href="https://unsplash.com/?utm_source=srt_site&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: var(--text-muted)"
+                    >Unsplash</a
+                  >
+                </p>
+              </div>
+              <div class="mte-card mte-card--raised" style="padding: 12px">
+                <div
+                  style="
+                    border-radius: 12px;
+                    overflow: hidden;
+                    aspect-ratio: 4/5;
+                  "
+                >
+                  <image-slot
+                    id="srt-g3"
+                    shape="rect"
+                    fit="cover"
+                    src="https://images.unsplash.com/photo-1639776738932-956082f0b704?fm=jpg&q=80&w=1200&auto=format&fit=crop"
+                    credit="Photo by Vitalijus on Unsplash"
+                    credit-href="https://unsplash.com/@vi_kalinka"
+                    placeholder="Vitre arrière — machine laser bleu"
+                  ></image-slot>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 14px 6px 4px;
+                  "
+                >
+                  <span
+                    data-en="Workshop — board-level repair"
+                    style="font-size: 13.5px; color: var(--text-body)"
+                    >Atelier — réparation carte</span
+                  >
+                  <span class="mte-monolabel" data-en="Workshop">Atelier</span>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 9px;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    color: var(--text-faint);
+                    padding: 8px 6px 2px;
+                  "
+                >
+                  Photo :
+                  <a
+                    href="https://unsplash.com/@vi_kalinka?utm_source=srt_site&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: var(--text-muted)"
+                    >Vitalijus</a
+                  >
+                  /
+                  <a
+                    href="https://unsplash.com/?utm_source=srt_site&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: var(--text-muted)"
+                    >Unsplash</a
+                  >
+                </p>
+              </div>
+              <div class="mte-card mte-card--raised" style="padding: 12px">
+                <div
+                  style="
+                    border-radius: 12px;
+                    overflow: hidden;
+                    aspect-ratio: 4/5;
+                  "
+                >
+                  <image-slot
+                    id="srt-g4"
+                    shape="rect"
+                    fit="cover"
+                    src="https://images.unsplash.com/photo-1746005514011-ea00280f3b6e?fm=jpg&q=80&w=1200&auto=format&fit=crop"
+                    credit="Photo by Fotografia Lui Vlad on Unsplash"
+                    credit-href="https://unsplash.com/@fotografialuivlad"
+                    placeholder="Stock de pièces — coques arrière iPhone"
+                  ></image-slot>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 14px 6px 4px;
+                  "
+                >
+                  <span
+                    data-en="Spare parts in stock"
+                    style="font-size: 13.5px; color: var(--text-body)"
+                    >Pièces de rechange en stock</span
+                  >
+                  <span class="mte-monolabel" data-en="Stock">Stock</span>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 9px;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    color: var(--text-faint);
+                    padding: 8px 6px 2px;
+                  "
+                >
+                  Photo :
+                  <a
+                    href="https://unsplash.com/@fotografialuivlad?utm_source=srt_site&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: var(--text-muted)"
+                    >Fotografia Lui Vlad</a
+                  >
+                  /
+                  <a
+                    href="https://unsplash.com/?utm_source=srt_site&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: var(--text-muted)"
+                    >Unsplash</a
+                  >
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="contact"
+            style="padding: clamp(56px, 9vw, 80px) 0 clamp(40px, 6vw, 80px)"
+          >
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: clamp(24px, 4vw, 56px);
+                align-items: end;
+                border-top: 1px solid var(--line-hairline);
+                padding-top: clamp(32px, 5vw, 56px);
+              "
+            >
+              <div style="display: flex; flex-direction: column; gap: 20px">
+                <h2
+                  style="
+                    font-family: var(--font-body);
+                    font-size: clamp(26px, 3.6vw, 44px);
+                    line-height: 0.98;
+                    letter-spacing: -0.035em;
+                    font-weight: 400;
+                    color: var(--text-strong);
+                    text-wrap: pretty;
+                  "
+                >
+                  <span data-en="Book in one ">Réservez en un </span
+                  ><span data-en="message." style="font-weight: 800"
+                    >message.</span
+                  >
+                </h2>
+                <a
+                  href="https://wa.me/237655698117?text=Bonjour%20SRT%2C%20je%20souhaite%20faire%20r%C3%A9parer%20mon%20t%C3%A9l%C3%A9phone."
+                  target="_blank"
+                  rel="noopener"
+                  class="mte-btn mte-btn--accent mte-btn--lg"
+                  data-en="Book on WhatsApp"
+                  style="align-self: flex-start"
+                  >Réserver sur WhatsApp</a
+                >
+              </div>
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                  gap: 24px;
+                "
+              >
+                <div>
+                  <div
+                    class="mte-monolabel"
+                    data-en="Phone / WhatsApp"
+                    style="margin-bottom: 10px"
+                  >
+                    Téléphone / WhatsApp
+                  </div>
+                  <a
+                    href="tel:+237655698117"
+                    style="font-size: 15px; color: var(--text-strong)"
+                    >+237 655 698 117</a
+                  >
+                </div>
+                <div>
+                  <div
+                    class="mte-monolabel"
+                    data-en="Email"
+                    style="margin-bottom: 10px"
+                  >
+                    Email
+                  </div>
+                  <a
+                    href="mailto:ericfrance44@gmail.com"
+                    style="font-size: 15px; color: var(--text-strong)"
+                    >ericfrance44@gmail.com</a
+                  >
+                </div>
+                <div>
+                  <div
+                    class="mte-monolabel"
+                    data-en="Address"
+                    style="margin-bottom: 10px"
+                  >
+                    Adresse
+                  </div>
+                  <p
+                    style="
+                      font-size: 15px;
+                      color: var(--text-strong);
+                      line-height: 1.4;
+                    "
+                  >
+                    Marché Central, Face Fokou — Yaoundé, Cameroun
+                  </p>
+                </div>
+                <div>
+                  <div
+                    class="mte-monolabel"
+                    data-en="Hours"
+                    style="margin-bottom: 10px"
+                  >
+                    Horaires
+                  </div>
+                  <p
+                    data-en="Open 24/7"
+                    style="
+                      font-size: 15px;
+                      color: var(--text-strong);
+                      line-height: 1.4;
+                    "
+                  >
+                    Ouvert 24h/24, 7j/7
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer
+          style="
+            background: var(--ink-950);
+            padding: 20px clamp(16px, 4vw, 40px);
+          "
+        >
+          <div
+            style="
+              max-width: 1200px;
+              margin: 0 auto;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 12px 32px;
+              justify-content: space-between;
+              font-family: var(--font-mono);
+              font-size: 10px;
+              letter-spacing: 0.16em;
+              text-transform: uppercase;
+              color: var(--ink-400);
+            "
+          >
+            <span>SRT · Service Réparation Téléphone Mobile</span>
+            <a
+              href="https://www.facebook.com/profile.php?id=100092611276456"
+              target="_blank"
+              rel="noopener"
+              style="color: var(--ink-300)"
+              >Facebook</a
+            >
+            <span style="display: flex; gap: 0.4em"
+              ><span data-en="Site by">Site par</span
+              ><a
+                href="https://wintercodenkjj.github.io/wintercodeNKJJ/"
+                target="_blank"
+                rel="noopener"
+                style="color: var(--ink-200)"
+                >Kenfack Jordan Junior</a
+              ></span
+            >
+            <span>Yaoundé · 2K26 · Génie d'affaire</span>
           </div>
-          <a href="https://wa.me/237655698117?text=Bonjour%20SRT%2C%20je%20voudrais%20un%20devis%20pour%20mon%20iPhone." target="_blank" rel="noopener" class="mte-btn mte-btn--primary mte-btn--md" data-en="Get a quote" style="align-self:flex-start">Demander un devis</a>
-        </div>
-        <div class="mte-card mte-card--raised" style="padding:clamp(16px,2.4vw,28px)">
-          <div style="display:flex; justify-content:space-between; align-items:baseline; padding:0 4px 14px; border-bottom:1px solid var(--line-strong)">
-            <span class="mte-monolabel" data-en="Model">Modèle</span>
-            <span class="mte-monolabel" data-en="Screen — FCFA">Afficheur — FCFA</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 4px; border-bottom:1px solid var(--line-hairline)">
-            <span style="font-size:15px; color:var(--text-body)">iPhone X / Xs</span>
-            <span style="font-family:var(--font-body); font-size:19px; font-weight:700; letter-spacing:-.02em; color:var(--text-strong); white-space:nowrap">12 000 F</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 4px; border-bottom:1px solid var(--line-hairline)">
-            <span style="font-size:15px; color:var(--text-body)">iPhone XR / 11</span>
-            <span style="font-family:var(--font-body); font-size:19px; font-weight:700; letter-spacing:-.02em; color:var(--text-strong); white-space:nowrap">13 500 F</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 4px; border-bottom:1px solid var(--line-hairline)">
-            <span style="font-size:15px; color:var(--text-body)">iPhone 11 Pro / 12</span>
-            <span style="font-family:var(--font-body); font-size:19px; font-weight:700; letter-spacing:-.02em; color:var(--text-strong); white-space:nowrap">16 000 F</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 4px; border-bottom:1px solid var(--line-hairline)">
-            <span style="font-size:15px; color:var(--text-body)">iPhone 11 Pro Max / Xs Max</span>
-            <span style="font-family:var(--font-body); font-size:19px; font-weight:700; letter-spacing:-.02em; color:var(--text-strong); white-space:nowrap">17 000 F</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 4px; border-bottom:1px solid var(--line-hairline)">
-            <span style="font-size:15px; color:var(--text-body)">iPhone 13 / 14</span>
-            <span style="font-family:var(--font-body); font-size:19px; font-weight:700; letter-spacing:-.02em; color:var(--text-strong); white-space:nowrap">23 000 F</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 4px; border-bottom:1px solid var(--line-hairline)">
-            <span style="font-size:15px; color:var(--text-body)">iPhone 14 Pro Max</span>
-            <span data-en="On quote" style="font-family:var(--font-body); font-size:19px; font-weight:700; letter-spacing:-.02em; color:var(--text-strong); white-space:nowrap">Sur devis</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 4px; border-bottom:1px solid var(--line-hairline)">
-            <span style="font-size:15px; color:var(--text-body)">iPhone 15 Pro Max</span>
-            <span style="font-family:var(--font-body); font-size:19px; font-weight:700; letter-spacing:-.02em; color:var(--text-strong); white-space:nowrap">70 000 F</span>
-          </div>
-          <p data-en="Prices for screen replacement, parts fitted in the workshop. Final price confirmed after the free diagnostic." style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; line-height:1.8; color:var(--text-faint); padding-top:16px">Prix du remplacement d'afficheur, pose en atelier. Prix définitif confirmé après le diagnostic gratuit.</p>
-        </div>
+        </footer>
       </div>
-    </section>
+    </x-dc>
+    <script type="text/x-dc" data-dc-script data-props="{}">
+      class Component extends DCLogic {
+        componentDidMount() {
+          this.wireLang();
+          this.icons(0);
+        }
 
-    <section id="pourquoi" style="padding:clamp(56px,9vw,120px) 0 0">
-      <div class="mte-monolabel" data-en="03 — Why us" style="margin-bottom:16px">03 — Pourquoi nous</div>
-      <div style="border-radius:32px; background:var(--ink-950); padding:clamp(24px,4vw,56px); display:flex; flex-direction:column; gap:clamp(24px,4vw,40px)">
-        <h2 style="font-family:var(--font-body); font-size:clamp(26px,3.6vw,44px); line-height:.98; letter-spacing:-.035em; font-weight:400; color:var(--ink-000); max-width:24ch; text-wrap:pretty">
-          <span data-en="Phone broken? ">Votre téléphone en panne ? </span><span data-en="No panic." style="font-weight:800">Pas de panique.</span>
-        </h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1px; background:var(--ink-950)">
-          <div style="background:var(--ink-950); padding:28px 24px; display:flex; flex-direction:column; gap:12px; box-shadow:inset 1px 1px 0 0 rgba(255,255,255,.14)">
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--acid-400)">01</span>
-            <h3 data-en="No more queues" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--ink-000); line-height:1.2">Plus de files d'attente</h3>
-            <p data-en="Book online on WhatsApp or Facebook instead of walking the shops." style="font-size:13.5px; line-height:1.5; color:var(--ink-300)">Réservez en ligne sur WhatsApp ou Facebook, sans courir les boutiques.</p>
-          </div>
-          <div style="background:var(--ink-950); padding:28px 24px; display:flex; flex-direction:column; gap:12px; box-shadow:inset 1px 1px 0 0 rgba(255,255,255,.14)">
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--acid-400)">02</span>
-            <h3 data-en="We come to you" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--ink-000); line-height:1.2">Nous venons chez vous</h3>
-            <p data-en="On-site repair across Yaoundé, at a time that suits you." style="font-size:13.5px; line-height:1.5; color:var(--ink-300)">Intervention à domicile dans Yaoundé, au moment qui vous arrange.</p>
-          </div>
-          <div style="background:var(--ink-950); padding:28px 24px; display:flex; flex-direction:column; gap:12px; box-shadow:inset 1px 1px 0 0 rgba(255,255,255,.14)">
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--acid-400)">03</span>
-            <h3 data-en="Free diagnostics" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--ink-000); line-height:1.2">Diagnostic gratuit</h3>
-            <p data-en="We identify the fault and quote the price before touching the phone." style="font-size:13.5px; line-height:1.5; color:var(--ink-300)">On identifie la panne et on annonce le prix avant de toucher au téléphone.</p>
-          </div>
-          <div style="background:var(--ink-950); padding:28px 24px; display:flex; flex-direction:column; gap:12px; box-shadow:inset 1px 1px 0 0 rgba(255,255,255,.14)">
-            <span style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--acid-400)">04</span>
-            <h3 data-en="Warranty on our parts" style="font-size:17px; font-weight:600; letter-spacing:-.01em; color:var(--ink-000); line-height:1.2">Garantie sur nos pièces</h3>
-            <p data-en="Every part we fit is covered. Certified technician." style="font-size:13.5px; line-height:1.5; color:var(--ink-300)">Chaque pièce posée est garantie. Technicien certifié.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        icons(n) {
+          if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); return; }
+          if (n < 30) setTimeout(() => this.icons(n + 1), 200);
+        }
 
-    <section id="galerie" style="padding:clamp(56px,9vw,120px) 0 0">
-      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:40px">
-        <div>
-          <div class="mte-monolabel" data-en="04 — Gallery" style="margin-bottom:16px">04 — Galerie</div>
-          <h2 style="font-family:var(--font-body); font-size:clamp(28px,4.4vw,52px); line-height:.98; letter-spacing:-.035em; font-weight:400; color:var(--text-strong); text-wrap:pretty">
-            <span data-en="Before ">Avant </span><span data-en="after." style="font-weight:800">après.</span>
-          </h2>
-        </div>
-        <p data-en="Reference photos. Drop your own workshop photos into the frames." style="font-family:var(--font-mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); max-width:30ch; line-height:1.8">Photos d'illustration. Déposez vos propres photos d'atelier dans les cadres.</p>
-      </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:16px">
-        <div class="mte-card mte-card--raised" style="padding:12px">
-          <div style="border-radius:12px; overflow:hidden; aspect-ratio:4/5"><image-slot id="srt-g1" shape="rect" fit="cover" src="https://images.unsplash.com/photo-1746005718004-1f992c399428?fm=jpg&q=80&w=1200&auto=format&fit=crop" credit="Photo by Fotografia Lui Vlad on Unsplash" credit-href="https://unsplash.com/@fotografialuivlad" placeholder="Avant — écran fissuré"></image-slot></div>
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 6px 4px">
-            <span data-en="Diagnostic — iPhone stripped down" style="font-size:13.5px; color:var(--text-body)">Diagnostic — iPhone démonté</span>
-            <span class="mte-monolabel" data-en="Before">Avant</span>
-          </div>
-          <p style="font-family:var(--font-mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); padding:8px 6px 2px">Photo : <a href="https://unsplash.com/@fotografialuivlad?utm_source=srt_site&utm_medium=referral" target="_blank" rel="noopener" style="color:var(--text-muted)">Fotografia Lui Vlad</a> / <a href="https://unsplash.com/?utm_source=srt_site&utm_medium=referral" target="_blank" rel="noopener" style="color:var(--text-muted)">Unsplash</a></p>
-        </div>
-        <div class="mte-card mte-card--raised" style="padding:12px">
-          <div style="border-radius:12px; overflow:hidden; aspect-ratio:4/5"><image-slot id="srt-g2" shape="rect" fit="cover" src="https://images.unsplash.com/photo-1596558450268-9c27524ba856?fm=jpg&q=80&w=1200&auto=format&fit=crop" credit="Photo by Thom Bradley on Unsplash" credit-href="https://unsplash.com/@thombradley" placeholder="Après — écran neuf"></image-slot></div>
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 6px 4px">
-            <span data-en="Screen replaced — back in service" style="font-size:13.5px; color:var(--text-body)">Écran remplacé — remis en service</span>
-            <span class="mte-monolabel mte-monolabel--highlight" data-en="After">Après</span>
-          </div>
-          <p style="font-family:var(--font-mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); padding:8px 6px 2px">Photo : <a href="https://unsplash.com/@thombradley?utm_source=srt_site&utm_medium=referral" target="_blank" rel="noopener" style="color:var(--text-muted)">Thom Bradley</a> / <a href="https://unsplash.com/?utm_source=srt_site&utm_medium=referral" target="_blank" rel="noopener" style="color:var(--text-muted)">Unsplash</a></p>
-        </div>
-        <div class="mte-card mte-card--raised" style="padding:12px">
-          <div style="border-radius:12px; overflow:hidden; aspect-ratio:4/5"><image-slot id="srt-g3" shape="rect" fit="cover" src="https://images.unsplash.com/photo-1639776738932-956082f0b704?fm=jpg&q=80&w=1200&auto=format&fit=crop" credit="Photo by Vitalijus on Unsplash" credit-href="https://unsplash.com/@vi_kalinka" placeholder="Vitre arrière — machine laser bleu"></image-slot></div>
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 6px 4px">
-            <span data-en="Workshop — board-level repair" style="font-size:13.5px; color:var(--text-body)">Atelier — réparation carte</span>
-            <span class="mte-monolabel" data-en="Workshop">Atelier</span>
-          </div>
-          <p style="font-family:var(--font-mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); padding:8px 6px 2px">Photo : <a href="https://unsplash.com/@vi_kalinka?utm_source=srt_site&utm_medium=referral" target="_blank" rel="noopener" style="color:var(--text-muted)">Vitalijus</a> / <a href="https://unsplash.com/?utm_source=srt_site&utm_medium=referral" target="_blank" rel="noopener" style="color:var(--text-muted)">Unsplash</a></p>
-        </div>
-        <div class="mte-card mte-card--raised" style="padding:12px">
-          <div style="border-radius:12px; overflow:hidden; aspect-ratio:4/5"><image-slot id="srt-g4" shape="rect" fit="cover" src="https://images.unsplash.com/photo-1746005514011-ea00280f3b6e?fm=jpg&q=80&w=1200&auto=format&fit=crop" credit="Photo by Fotografia Lui Vlad on Unsplash" credit-href="https://unsplash.com/@fotografialuivlad" placeholder="Stock de pièces — coques arrière iPhone"></image-slot></div>
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 6px 4px">
-            <span data-en="Spare parts in stock" style="font-size:13.5px; color:var(--text-body)">Pièces de rechange en stock</span>
-            <span class="mte-monolabel" data-en="Stock">Stock</span>
-          </div>
-          <p style="font-family:var(--font-mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); padding:8px 6px 2px">Photo : <a href="https://unsplash.com/@fotografialuivlad?utm_source=srt_site&utm_medium=referral" target="_blank" rel="noopener" style="color:var(--text-muted)">Fotografia Lui Vlad</a> / <a href="https://unsplash.com/?utm_source=srt_site&utm_medium=referral" target="_blank" rel="noopener" style="color:var(--text-muted)">Unsplash</a></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" style="padding:clamp(56px,9vw,80px) 0 clamp(40px,6vw,80px)">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(24px,4vw,56px); align-items:end; border-top:1px solid var(--line-hairline); padding-top:clamp(32px,5vw,56px)">
-        <div style="display:flex; flex-direction:column; gap:20px">
-          <h2 style="font-family:var(--font-body); font-size:clamp(26px,3.6vw,44px); line-height:.98; letter-spacing:-.035em; font-weight:400; color:var(--text-strong); text-wrap:pretty">
-            <span data-en="Book in one ">Réservez en un </span><span data-en="message." style="font-weight:800">message.</span>
-          </h2>
-          <a href="https://wa.me/237655698117?text=Bonjour%20SRT%2C%20je%20souhaite%20faire%20r%C3%A9parer%20mon%20t%C3%A9l%C3%A9phone." target="_blank" rel="noopener" class="mte-btn mte-btn--accent mte-btn--lg" data-en="Book on WhatsApp" style="align-self:flex-start">Réserver sur WhatsApp</a>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:24px">
-          <div>
-            <div class="mte-monolabel" data-en="Phone / WhatsApp" style="margin-bottom:10px">Téléphone / WhatsApp</div>
-            <a href="tel:+237655698117" style="font-size:15px; color:var(--text-strong)">+237 655 698 117</a>
-          </div>
-          <div>
-            <div class="mte-monolabel" data-en="Email" style="margin-bottom:10px">Email</div>
-            <a href="mailto:ericfrance44@gmail.com" style="font-size:15px; color:var(--text-strong)">ericfrance44@gmail.com</a>
-          </div>
-          <div>
-            <div class="mte-monolabel" data-en="Address" style="margin-bottom:10px">Adresse</div>
-            <p style="font-size:15px; color:var(--text-strong); line-height:1.4">Marché Central, Face Fokou — Yaoundé, Cameroun</p>
-          </div>
-          <div>
-            <div class="mte-monolabel" data-en="Hours" style="margin-bottom:10px">Horaires</div>
-            <p data-en="Open 24/7" style="font-size:15px; color:var(--text-strong); line-height:1.4">Ouvert 24h/24, 7j/7</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer style="background:var(--ink-950); padding:20px clamp(16px,4vw,40px)">
-    <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:12px 32px; justify-content:space-between; font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-400)">
-      <span>SRT · Service Réparation Téléphone Mobile</span>
-      <a href="https://www.facebook.com/profile.php?id=100092611276456" target="_blank" rel="noopener" style="color:var(--ink-300)">Facebook</a>
-      <span style="display:flex; gap:.4em"><span data-en="Site by">Site par</span><a href="https://wintercodenkjj.github.io/wintercodeNKJJ/" target="_blank" rel="noopener" style="color:var(--ink-200)">Kenfack Jordan Junior</a></span>
-      <span>Yaoundé · 2K26 · Génie d'affaire</span>
-    </div>
-  </footer>
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{}">
-class Component extends DCLogic {
-  componentDidMount() {
-    this.wireLang();
-    this.icons(0);
-  }
-
-  icons(n) {
-    if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); return; }
-    if (n < 30) setTimeout(() => this.icons(n + 1), 200);
-  }
-
-  wireLang() {
-    const root = document.getElementById('srt-root');
-    const bar = document.getElementById('srt-lang');
-    if (!root || !bar) { setTimeout(() => this.wireLang(), 200); return; }
-    const btns = Array.from(bar.querySelectorAll('button'));
-    const apply = (lang) => {
-      root.querySelectorAll('[data-en]').forEach(el => {
-        if (el.dataset.fr === undefined) el.dataset.fr = el.textContent;
-        el.textContent = lang === 'en' ? el.dataset.en : el.dataset.fr;
-      });
-      btns.forEach(b => {
-        const on = b.dataset.lang === lang;
-        b.style.background = on ? 'var(--ink-950)' : 'transparent';
-        b.style.color = on ? 'var(--ink-000)' : 'var(--text-muted)';
-      });
-      document.documentElement.lang = lang;
-      try { localStorage.setItem('srt-lang', lang); } catch (e) {}
-    };
-    btns.forEach(b => b.addEventListener('click', () => apply(b.dataset.lang)));
-    let saved = 'fr';
-    try { saved = localStorage.getItem('srt-lang') || 'fr'; } catch (e) {}
-    if (saved === 'en') apply('en');
-  }
-}
-</script>
-</body>
+        wireLang() {
+          const root = document.getElementById('srt-root');
+          const bar = document.getElementById('srt-lang');
+          if (!root || !bar) { setTimeout(() => this.wireLang(), 200); return; }
+          const btns = Array.from(bar.querySelectorAll('button'));
+          const apply = (lang) => {
+            root.querySelectorAll('[data-en]').forEach(el => {
+              if (el.dataset.fr === undefined) el.dataset.fr = el.textContent;
+              el.textContent = lang === 'en' ? el.dataset.en : el.dataset.fr;
+            });
+            btns.forEach(b => {
+              const on = b.dataset.lang === lang;
+              b.style.background = on ? 'var(--ink-950)' : 'transparent';
+              b.style.color = on ? 'var(--ink-000)' : 'var(--text-muted)';
+            });
+            document.documentElement.lang = lang;
+            try { localStorage.setItem('srt-lang', lang); } catch (e) {}
+          };
+          btns.forEach(b => b.addEventListener('click', () => apply(b.dataset.lang)));
+          let saved = 'fr';
+          try { saved = localStorage.getItem('srt-lang') || 'fr'; } catch (e) {}
+          if (saved === 'en') apply('en');
+        }
+      }
+    </script>
+  </body>
 </html>
