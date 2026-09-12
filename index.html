@@ -71,6 +71,20 @@
           p {
             margin: 0;
           }
+          @media (max-width: 859px) {
+            #srt-links,
+            #srt-wa {
+              display: none !important;
+            }
+            #srt-burger {
+              display: flex !important;
+            }
+          }
+          @media (min-width: 860px) {
+            #srt-menu {
+              display: none !important;
+            }
+          }
         </style>
       </helmet>
 
@@ -79,6 +93,7 @@
         style="min-height: 100vh; background: var(--surface-page)"
       >
         <header
+          id="srt-header"
           style="
             position: sticky;
             top: 0;
@@ -111,12 +126,14 @@
                 display: flex;
                 align-items: baseline;
                 gap: 10px;
-                flex: 1;
-                min-width: 0;
+                flex: 1 1 auto;
+                min-width: 44px;
+                overflow: hidden;
               "
             >
               <span
                 style="
+                  flex: none;
                   font-family: var(--font-body);
                   font-weight: 800;
                   font-size: 20px;
@@ -135,11 +152,15 @@
                   overflow: hidden;
                   text-overflow: ellipsis;
                   white-space: nowrap;
+                  min-width: 0;
                 "
                 >Service Réparation Téléphone Mobile</span
               >
             </a>
-            <div style="display: flex; align-items: center; gap: 4px">
+            <div
+              id="srt-links"
+              style="display: flex; align-items: center; gap: 4px"
+            >
               <a
                 href="#services"
                 data-en="Services"
@@ -233,6 +254,7 @@
               </button>
             </div>
             <a
+              id="srt-wa"
               href="https://wa.me/237655698117"
               target="_blank"
               rel="noopener"
@@ -240,7 +262,122 @@
               style="flex: none"
               >WhatsApp</a
             >
+            <button
+              id="srt-burger"
+              type="button"
+              aria-label="Menu"
+              aria-expanded="false"
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                flex: none;
+                border: 0;
+                cursor: pointer;
+                border-radius: 999px;
+                background: var(--ink-950);
+                color: var(--ink-000);
+              "
+            >
+              <i
+                data-lucide="menu"
+                style="width: 18px; height: 18px; stroke-width: 2"
+              ></i>
+            </button>
           </nav>
+          <div
+            id="srt-menu"
+            style="
+              display: none;
+              position: absolute;
+              top: 100%;
+              left: clamp(16px, 4vw, 40px);
+              right: clamp(16px, 4vw, 40px);
+              margin-top: 6px;
+              padding: 8px;
+              border-radius: 20px;
+              background: rgba(255, 255, 255, 0.94);
+              backdrop-filter: blur(18px);
+              -webkit-backdrop-filter: blur(18px);
+              box-shadow:
+                inset 0 0 0 1px var(--line-hairline),
+                0 16px 32px -12px rgba(8, 9, 10, 0.28);
+              flex-direction: column;
+              gap: 2px;
+            "
+          >
+            <a
+              href="#services"
+              data-en="Services"
+              style="
+                font-family: var(--font-mono);
+                font-size: 11px;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                padding: 14px 16px;
+                border-radius: 14px;
+                color: var(--text-body);
+              "
+              style-hover="background:var(--surface-sunken)"
+              >Services</a
+            >
+            <a
+              href="#tarifs"
+              data-en="Pricing"
+              style="
+                font-family: var(--font-mono);
+                font-size: 11px;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                padding: 14px 16px;
+                border-radius: 14px;
+                color: var(--text-body);
+              "
+              style-hover="background:var(--surface-sunken)"
+              >Tarifs</a
+            >
+            <a
+              href="#galerie"
+              data-en="Gallery"
+              style="
+                font-family: var(--font-mono);
+                font-size: 11px;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                padding: 14px 16px;
+                border-radius: 14px;
+                color: var(--text-body);
+              "
+              style-hover="background:var(--surface-sunken)"
+              >Galerie</a
+            >
+            <a
+              href="#contact"
+              data-en="Contact"
+              style="
+                font-family: var(--font-mono);
+                font-size: 11px;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                padding: 14px 16px;
+                border-radius: 14px;
+                color: var(--text-body);
+              "
+              style-hover="background:var(--surface-sunken)"
+              >Contact</a
+            >
+            <a
+              href="https://wa.me/237655698117?text=Bonjour%20SRT%2C%20je%20souhaite%20faire%20r%C3%A9parer%20mon%20t%C3%A9l%C3%A9phone."
+              target="_blank"
+              rel="noopener"
+              class="mte-btn mte-btn--primary mte-btn--md"
+              data-en="Book on WhatsApp"
+              style="margin-top: 6px"
+              >Réserver sur WhatsApp</a
+            >
+          </div>
         </header>
 
         <main
@@ -284,7 +421,7 @@
                 "
               >
                 <span
-                  data-en="Fast, reliable phone repair"
+                  data-en="Phone repair that's fast, reliable"
                   style="display: block"
                   >Réparation rapide, fiable</span
                 >
@@ -2160,7 +2297,45 @@
       class Component extends DCLogic {
         componentDidMount() {
           this.wireLang();
+          this.wireNav();
           this.icons(0);
+        }
+
+        wireNav() {
+          const header = document.getElementById('srt-header');
+          const links = document.getElementById('srt-links');
+          const burger = document.getElementById('srt-burger');
+          const menu = document.getElementById('srt-menu');
+          const wa = document.getElementById('srt-wa');
+          if (!header || !links || !burger || !menu || !wa) { setTimeout(() => this.wireNav(), 200); return; }
+
+          const close = () => {
+            menu.style.display = 'none';
+            burger.setAttribute('aria-expanded', 'false');
+          };
+          const open = () => {
+            menu.style.display = 'flex';
+            burger.setAttribute('aria-expanded', 'true');
+          };
+
+          // display is owned by media queries in <helmet>; JS only closes a stale open menu
+          const mq = window.matchMedia('(max-width: 859px)');
+          const layout = () => { if (!mq.matches) close(); };
+
+          burger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu.style.display === 'flex' ? close() : open();
+          });
+          menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+          document.addEventListener('click', (e) => {
+            if (menu.style.display === 'flex' && !menu.contains(e.target) && e.target !== burger) close();
+          });
+          document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+          layout();
+          window.addEventListener('resize', layout);
+          if (mq.addEventListener) mq.addEventListener('change', layout);
+          else if (mq.addListener) mq.addListener(layout);
         }
 
         icons(n) {
